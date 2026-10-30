@@ -35,7 +35,7 @@
 - `temperature`：温度属性(`hot(滚烫，如火锅) warm(正常热菜，如盖饭) cool(凉，如凉面) cold(冰，如冰淇淋)`)
 - `mealTime`：适合时段 (`breakfast(早餐4-11点) lunch(中餐11-14点) dinner(晚餐17-21点) tea(下午茶14-17点) supper(夜宵21-4点)`)
 - `moodTags`：契合的情绪状态 (`stressed(高压) tired(疲惫) reward(开心) casual(平常)`)
-- `flavor`：味道类型（`spicy(香辣) savory(咸鲜) sour(酸甜) mild(清淡)`）
+- `flavor`：味道类型（`spicy(香辣) savory(咸鲜) sour(酸) mild(清甜)`）
 - `texture`：口感形态（`soup(汤水) dry(干拌) crispy(酥脆) soft(软糯)`）
 - `scale`：就餐规格（`snack(小吃) simple(简餐) hearty(正餐) feast(大餐)`）
 
