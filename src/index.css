@@ -125,7 +125,6 @@
 }
 
 /* ================= 扭蛋机单颗扭蛋独立晃动与弹跳轨迹 ================= */
-/* 1. 平时状态：每颗球各自独立轻微呼吸起伏 */
 @keyframes ballIdle {
   0%,
   100% {
@@ -141,7 +140,6 @@
   }
 }
 
-/* 2. 鼠标靠近右半屏状态：每颗球各自向不同方向欢快乱蹦 */
 @keyframes ballHoverBounce {
   0%,
   100% {
@@ -164,7 +162,6 @@
   }
 }
 
-/* 3. 拧动旋钮状态：全仓剧烈翻滚搅拌 */
 @keyframes ballSpinChaos {
   0%,
   100% {
@@ -193,6 +190,96 @@
   }
 }
 
+/* 扭蛋机身摇奖震颤动效 */
+@keyframes machineShake {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-3px, -2px) rotate(-1.5deg);
+  }
+  40% {
+    transform: translate(3px, 1px) rotate(1.5deg);
+  }
+  60% {
+    transform: translate(-3px, 2px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(2px, -1px) rotate(1deg);
+  }
+}
+
+/* 阶段2：纯色扭蛋从出球口滚落并 Q 弹跳动两下 */
+@keyframes capsuleDropBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-90px) scale(0.35) rotate(-140deg);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(14px) scale(1.08, 0.9) rotate(15deg);
+  }
+  70% {
+    transform: translateY(-22px) scale(0.95, 1.05) rotate(-8deg);
+  }
+  88% {
+    transform: translateY(5px) scale(1.03, 0.97) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+/* 阶段3：扭蛋上半壳向上裂开飞旋 */
+@keyframes shellSplitTop {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-18px, -52px) rotate(-24deg) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-34px, -78px) rotate(-38deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* 阶段3：扭蛋下半壳向下裂开退场 */
+@keyframes shellSplitBottom {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(18px, 48px) rotate(20deg) scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(32px, 74px) rotate(34deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+/* 破壳瞬间中心光芒与星星迸发 */
+@keyframes burstFlash {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
 .gacha-single-ball {
   transform-box: fill-box;
   transform-origin: center;
@@ -207,13 +294,33 @@
 
 .gacha-spinning .gacha-single-ball {
   animation-name: ballSpinChaos !important;
-  animation-duration: 0.28s !important;
+  animation-duration: 0.26s !important;
+}
+
+.gacha-machine-shaking {
+  animation: machineShake 0.16s ease-in-out infinite;
+}
+
+.animate-capsule-drop {
+  animation: capsuleDropBounce 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-shell-top {
+  animation: shellSplitTop 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-shell-bottom {
+  animation: shellSplitBottom 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-burst-flash {
+  animation: burstFlash 0.38s ease-out forwards;
 }
 
 @keyframes popIn {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(0.95);
+    transform: translateY(18px) scale(0.9);
   }
   to {
     opacity: 1;
@@ -241,5 +348,5 @@
 }
 
 .animate-pop-in {
-  animation: popIn 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: popIn 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
