@@ -1,9 +1,5 @@
-import StreetScene from "./components/StreetScene";
+import HomeSplitStage from './components/HomeSplitStage';
 
 export default function App() {
-  return (
-    <main className="w-screen h-screen overflow-hidden">
-      <StreetScene />
-    </main>
-  );
+  return <HomeSplitStage />;
 }
